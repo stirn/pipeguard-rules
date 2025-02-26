@@ -1,0 +1,13 @@
+kind: rules
+
+info:
+  type: sast
+  author: labaznick@gmail.com
+  description: Rules for Semgrep SAST report
+
+issues:
+  exclude:
+    - description: Match Cryptographic Controls
+      id: rule-owasp-crypto
+      rule: |
+        [item for item in extra.metadata.owasp if item =~~ "A01"]
